@@ -1,0 +1,19 @@
+
+
+img {
+	@if $type == "all"{
+		max-width: 100%;
+		height: auto;
+		max-width: 100%;
+		height: auto;
+		&[src$=".svg"] {
+			width: 100%;
+		}
+	}
+}
+
+iframe {
+	@if $type == "all"{
+		max-width: 100%;
+	}
+}

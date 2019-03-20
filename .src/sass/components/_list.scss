@@ -1,0 +1,55 @@
+
+ul{
+	@if $type == "all"{
+		list-style-type: none;
+		&.ul-disc{
+			> li{
+				position: relative;
+				padding: 0 0 0 1.5em;
+				&:before{
+					content: '●';
+					position: absolute;
+					left: 0;
+					color: $color_main;
+				}
+			}
+		}
+		&.ul-circle{
+			list-style: circle;
+			padding: 0 0 0 1.5em;
+		}
+		&.ul-square{
+			list-style: square;
+			padding: 0 0 0 1.5em;
+		}
+		&.ul-kome{
+			> li{
+				position: relative;
+				padding-left: 1.2em;
+				&:before{
+					content: '※';
+					position: absolute;
+					left: 0;
+					color: $color_font;
+				}
+			}
+		}
+	}
+}
+ol{
+	@if $type == "all"{
+		list-style: decimal;
+		padding: 0 0 0 1.5em;
+	}
+}
+
+// li間を開ける場合
+.li-m{
+	@if $type == "all"{
+		> li{
+			&:not(:last-child){
+				margin-bottom: .5em;
+			}
+		}
+	}
+}

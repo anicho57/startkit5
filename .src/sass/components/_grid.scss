@@ -1,0 +1,99 @@
+$column: 12;
+$grid_margin_pc: 40px;
+$grid_margin_tab: 24px;
+$grid_margin_sp: 16px;
+.row{
+	@if $type == "all"{
+		margin-left: -($grid_margin_pc / 2);
+		margin-right: -($grid_margin_pc / 2);
+		&:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+	}
+	@if $type == "tab"{
+		margin-left: -($grid_margin_tab / 2);
+		margin-right: -($grid_margin_tab / 2);
+	}
+	@if $type == "sp"{
+		margin-left: -($grid_margin_sp / 2);
+		margin-right: -($grid_margin_sp / 2);
+	}
+}
+%col{
+	@if $type == "all"{
+		box-sizing: border-box;
+		float: left;
+		padding: ($grid_margin_pc / 2);
+		:first-child{
+			margin-top: 0;
+		}
+	}
+	@if $type == "tab"{
+		padding: ($grid_margin_tab / 2);
+	}
+	@if $type == "sp"{
+		padding: ($grid_margin_sp / 2);
+	}
+}
+.col{
+	@if $type == "all"{
+		@for $i from 1 through $column {
+			&-#{$i}{
+				@extend %col;
+				$width: percentage($i / $column);
+				width: $width;
+			}
+			&-tab-#{$i}{
+				@extend %col;
+			}
+			&-sp-#{$i}{
+				@extend %col;
+			}
+		}
+	}
+	@if $type == "tab"{
+		@for $i from 1 through $column {
+			&-tab-#{$i}{
+				$width: percentage($i / $column);
+				width: $width;
+				@if $i == $column {
+					float: none;
+				}
+			}
+		}
+	}
+	@if $type == "sp"{
+		@for $i from 1 through $column {
+			&-sp-#{$i}{
+				$width: percentage($i / $column);
+				width: $width;
+				@if $i == $column {
+					float: none;
+				}
+			}
+		}
+	}
+}
+
+
+.fx-row{
+	@if $type == "all"{
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -($grid_margin_pc / 2);
+		margin-right: -($grid_margin_pc / 2);
+		> *{
+			float: none;
+		}
+	}
+	@if $type == "tab"{
+		margin-left: -($grid_margin_tab / 2);
+		margin-right: -($grid_margin_tab / 2);
+	}
+	@if $type == "sp"{
+		margin-left: -($grid_margin_sp / 2);
+		margin-right: -($grid_margin_sp / 2);
+	}
+}

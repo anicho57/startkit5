@@ -1,0 +1,6 @@
+
+.test{
+	@if $type == "all"{
+		background-color: #000;
+	}
+}

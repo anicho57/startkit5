@@ -1,0 +1,67 @@
+// button
+%button{
+	@if $type == "all"{
+		display: inline-block;
+		padding: .5em 1em .35em;
+		text-decoration: none;
+		&:hover{
+			cursor: pointer;
+			text-decoration: none;
+		}
+		&.btn-lg{
+			padding: .6em 3em .5em;
+			font-size: 1.25em;
+		}
+		&.btn-sm{
+			font-size: .8em;
+		}
+	}
+}
+
+.btn{
+	@if $type == "all"{
+		&-default{
+			@extend %button;
+			background-color: #f6f6f6;
+			color: $color_font !important;
+			text-align: center;
+			&:hover{
+				background-color: #fcfcfc;
+			}
+		}
+		&-main{
+			@extend %button;
+			background-color: $color_main;
+			color: #fff !important;
+			&:hover{
+				background-color: lighten($color_main, 10%);
+			}
+		}
+		&-main-o{
+			@extend %button;
+			color: $color_main !important;
+			&:hover{
+				background-color: $color_main;
+				color: #fff !important;
+			}
+		}
+		&-sub{
+			@extend %button;
+			background-color: $color_sub;
+			color: #fff !important;
+			&:hover{
+				background-color: lighten($color_sub, 10%);
+			}
+		}
+		&-accent{
+			@extend %button;
+			background-color: $color_accent;
+			color: #fff !important;
+			&:hover{
+				background-color: lighten($color_accent, 10%);
+			}
+		}
+	}
+}
+
+

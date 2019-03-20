@@ -1,0 +1,62 @@
+
+@each $q, $size in $space_base_size {
+	@each $name, $ratio in $space_size_ratio {
+		@if $type == $q{
+			.m-#{$name}{
+				margin-top: $size * $ratio;
+				margin-bottom: $size * $ratio;
+			}
+			.mt-#{$name}{
+				margin-top: $size * $ratio;
+			}
+			.mb-#{$name}{
+				margin-bottom: $size * $ratio;
+			}
+		}
+	}
+}
+
+// .m{
+// 	@if $type == "all"{
+// 		@each $name, $size in $size_all {
+// 			&-#{$name}{
+// 				margin-top: $size;
+// 				margin-bottom: $size;
+// 			}
+// 			&t-#{$name}{
+// 				margin-top: $size;
+// 			}
+// 			&b-#{$name}{
+// 				margin-bottom: $size;
+// 			}
+// 		}
+// 	}
+// 	@if $type == "tab"{
+// 		@each $name, $size in $size_tab {
+// 			&-#{$name}{
+// 				margin-top: $size;
+// 				margin-bottom: $size;
+// 			}
+// 			&t-#{$name}{
+// 				margin-top: $size;
+// 			}
+// 			&b-#{$name}{
+// 				margin-bottom: $size;
+// 			}
+// 		}
+// 	}
+// 	@if $type == "sp"{
+// 		@each $name, $size in $size_sp {
+// 			&-#{$name}{
+// 				margin-top: $size;
+// 				margin-bottom: $size;
+// 			}
+// 			&t-#{$name}{
+// 				margin-top: $size;
+// 			}
+// 			&b-#{$name}{
+// 				margin-bottom: $size;
+// 			}
+// 		}
+// 	}
+// }

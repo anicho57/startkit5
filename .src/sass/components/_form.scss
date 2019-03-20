@@ -1,0 +1,46 @@
+
+// form element
+textarea, input, select{
+	@if $type == "all"{
+		padding: 3px;
+		// appearance: none;
+	}
+}
+[type="submit"],button{
+	@if $type == "all"{
+		cursor: pointer;
+	}
+}
+[type="text"],
+[type="password"],
+[type="email"],
+[type="url"],
+[type="number"],
+select,
+textarea{
+	@if $type == "all"{
+		border: 1px solid #ccc;
+		border-radius: 2px;
+		background-color: #fbfbfb;
+		&:focus{
+			border-color: #999;
+			background-color: #fefefe;
+		}
+	}
+}
+::-webkit-input-placeholder {
+	@if $type == "all"{
+		color: #999;
+	}
+}
+::-moz-placeholder {
+	@if $type == "all"{
+		color: #999;
+	}
+}
+:-ms-input-placeholder {
+	@if $type == "all"{
+		color: #999;
+	}
+}
+

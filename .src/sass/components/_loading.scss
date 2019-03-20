@@ -1,0 +1,124 @@
+html:not(.no-js){
+	@if $type == "all"{
+		.is-loading{
+			// .loading{
+			// 	visibility: visible;
+			// 	opacity: 1;
+			// }
+			&:after{
+				$size: 48px;
+				content: '';
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				border: 4px solid rgba($color_main, .1);
+				border-top-color: $color_main;
+				width: $size;
+				height: $size;
+				border-radius: 50%;
+				margin-top: -($size / 2);
+				margin-left: -($size / 2);
+				-webkit-animation: spin 1s linear infinite;
+				        animation: spin 1s linear infinite;
+			}
+			// .page{
+			// 	visibility: hidden;
+			// }
+		}
+	}
+}
+body:not(.is-loading){
+	@if $type == "all"{
+		.page{
+			animation: fadein 1s;
+		}
+	}
+}
+
+
+
+// @if $type == "all"{
+// 	$green: #008744;
+// 	$blue: #0057e7;
+// 	$red: #d62d20;
+// 	$yellow: #ffa700;
+// 	$white: #eee;
+// 	$width: 72px;
+
+// 	.loading {
+// 		transition: visibility .4s, opacity .4s;
+// 		visibility: hidden;
+// 		opacity: 0;
+// 		position: fixed;
+// 		top: 50%;
+// 		left: 50%;
+// 		transform: translate(-50%, -50%);
+// 	}
+
+// 	.loader {
+// 		position: relative;
+// 		width: $width;
+// 		&:before {
+// 			content: '';
+// 			display: block;
+// 			padding-top: 100%;
+// 		}
+// 	}
+
+// 	.circular {
+// 		position: absolute;
+// 		top: 0;
+// 		bottom: 0;
+// 		left: 0;
+// 		right: 0;
+// 		height: 100%;
+// 		width: 100%;
+// 		animation: rotate 2s linear infinite;
+// 		transform-origin: center center;
+// 	}
+
+// 	.path {
+// 		stroke-dasharray: 1, 200;
+// 		stroke-dashoffset: 0;
+// 		animation: dash 1.5s ease-in-out infinite, color 4s ease-in-out infinite;
+// 		stroke-linecap: round;
+// 	}
+// 	@keyframes rotate {
+// 		100% {
+// 			transform: rotate(360deg);
+// 		}
+// 	}
+
+// 	@keyframes dash {
+// 		0% {
+// 			stroke-dasharray: 1, 200;
+// 			stroke-dashoffset: 0;
+// 		}
+// 		50% {
+// 			stroke-dasharray: 89, 200;
+// 			stroke-dashoffset: -35px;
+// 		}
+// 		100% {
+// 			stroke-dasharray: 89, 200;
+// 			stroke-dashoffset: -124px;
+// 		}
+// 	}
+
+// 	@keyframes color {
+// 		100%,
+// 		0% {
+// 			stroke: $red;
+// 		}
+// 		40% {
+// 			stroke: $blue;
+// 		}
+// 		66% {
+// 			stroke: $green;
+// 		}
+// 		80%,
+// 		90% {
+// 			stroke: $yellow;
+// 		}
+// 	}
+// }
+

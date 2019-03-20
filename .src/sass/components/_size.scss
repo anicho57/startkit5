@@ -1,0 +1,46 @@
+
+
+// box sizing
+html {
+	@if $type == "all"{
+		box-sizing: border-box;
+	}
+}
+*, *:before, *:after {
+	@if $type == "all"{
+		box-sizing: inherit;
+	}
+}
+
+// $start: 4;
+// $end: 50;
+// $step: 10;
+// $unit: px;
+// .w{
+// 	@for $i from $start through $end {
+// 		&#{$i * $step}{
+// 			width: #{$i * $step}px !important;
+// 		}
+// 	}
+// }
+$start: 2;
+$end: 100;
+$step: 2;
+.w{
+	@if $type == "all"{
+		@for $i from $start through $end {
+			&#{$i * $step}p{
+				width: percentage($i * $step / 100) !important;
+			}
+		}
+	}
+}
+.mw{
+	@if $type == "all"{
+		@for $i from $start through $end {
+			&#{$i * $step}p{
+				max-width: percentage($i * $step / 100) !important;
+			}
+		}
+	}
+}

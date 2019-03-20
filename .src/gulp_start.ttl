@@ -1,0 +1,17 @@
+HOSTADDR = '192.168.1.251'
+USERNAME = 'mosk'
+PASSWORD = 'mosk'
+;==============================================
+COMMAND = HOSTADDR
+strconcat COMMAND ':22 /ssh /2 /auth=password /user='
+strconcat COMMAND USERNAME
+strconcat COMMAND ' /passwd='
+strconcat COMMAND PASSWORD
+
+connect COMMAND
+wait '$'
+sendln 'cd /home/samba/WEB/meguro-nichidai.ed.jp/public_html/.src/'
+wait '$'
+sendln 'gulp'
+
+end

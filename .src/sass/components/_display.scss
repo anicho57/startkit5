@@ -1,0 +1,14 @@
+
+.d{
+	@if $type == "all"{
+		&-b{
+			display: block !important;
+		}
+		&-ib{
+			display: inline-block !important;
+		}
+		&-i{
+			display: inline !important;
+		}
+	}
+}

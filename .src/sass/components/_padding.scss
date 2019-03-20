@@ -1,0 +1,22 @@
+
+@each $q, $size in $space_base_size {
+	@each $name, $ratio in $space_size_ratio {
+		@if $type == $q{
+			.p-#{$name}{
+				padding: $size * $ratio;
+			}
+			.pt-#{$name}{
+				padding-top: $size * $ratio;
+			}
+			.pr-#{$name}{
+				padding-right: $size * $ratio;
+			}
+			.pb-#{$name}{
+				padding-bottom: $size * $ratio;
+			}
+			.pl-#{$name}{
+				padding-left: $size * $ratio;
+			}
+		}
+	}
+}
