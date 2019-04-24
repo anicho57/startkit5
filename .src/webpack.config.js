@@ -1,14 +1,22 @@
 module.exports = {
    // モード値を production に設定すると最適化された状態で、
    // development に設定するとソースマップ有効でJSファイルが出力される
+  //  mode: "production",
    mode: "development",
-
    // メインのJS
-   entry: "./js/index.js",
+   entry: {
+     app : "./js/index.js"
+    },
    // 出力ファイル
    output: {
-     filename: "app.js"
+     filename: "[name].js"
    },
+  //  optimization: {
+  //     splitChunks: {
+  //       name: 'vendor',
+  //       chunks: 'initial',
+  //     }
+  // },
    module: {
      rules: [
        {
@@ -32,13 +40,15 @@ module.exports = {
      ]
    },
    // import 文で .ts ファイルを解決するため
-  //  resolve: {
-  //     extensions: [
-  //        '.ts','.js'
-  //     ],
-  //     // Webpackで利用するときの設定
-  //     alias: {
-  //       //  vue: 'vue/dist/vue.js'
-  //     }
-  //  }
+   resolve: {
+      // extensions: [
+      //    '.ts','.js'
+      // ],
+      // Webpackで利用するときの設定
+      alias: {
+        //  vue: 'vue/dist/vue.js'
+         $: 'jquery',
+         jQuery: 'jquery'
+      }
+   }
  }
