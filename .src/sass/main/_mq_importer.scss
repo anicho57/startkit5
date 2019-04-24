@@ -1,3 +1,7 @@
+
+@import '../pages/common';
+
+
 @import "../components/img";
 @import "../components/display";
 @import "../components/size";
@@ -6,6 +10,8 @@
 @import "../components/margin";
 @import "../components/padding";
 @import "../components/list";
+@import "../components/table";
+@import "../components/heading";
 
 
 @import "../components/button";
@@ -14,7 +20,4 @@
 @import "../components/form";
 @import "../components/loading";
 
-
-
-@import '../pages/common';
 
