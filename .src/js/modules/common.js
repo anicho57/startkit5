@@ -37,8 +37,7 @@ export function setIni(){
    });
 }
 
-export function setCommon(){
-
+export function setPhotoswipe(){
    $("[data-pswp]").find("a").each(function(index, el) {
       if (!$(this).find('img').length) {
          $(this).append('<img style="height:0;position:absolute;" >');
@@ -53,33 +52,25 @@ export function setCommon(){
       fullscreenEl: false,
       shareEl: false
    });
+}
 
+export function setInview(){
    // view animation
    inView.offset(60);
    inView('.fadein,.skirtin').on('enter', el => {
       $(el).addClass('is-view');
    });
+}
 
-   $('a[href^="http"]:not([href*="' + location.hostname + '"])').attr('target', '_blank').addClass('is-blank');
-   $('a[href$=".pdf"]').attr('target', '_blank').addClass('is-pdf');
-   $('a').filter(function(){return /\.(jpe?g|png|gif)$/i.test(this.href);}).addClass('is-image');
-
-   // acordion
-   const button = $('.js-accordion > :first-child');
-   let body = button.next();
-   body.hide();
-   button.on('click', function(){
-      body = $(this).next();
-      body.stop().slideToggle(600, () =>{
-         if (body.css('display') === 'none'){
-            $(this).removeClass('is-open');
-         }else{
-            $(this).addClass('is-open');
-         }
-         // $(window).trigger('scroll');
-      });
+export function setInview(){
+   // view animation
+   inView.offset(60);
+   inView('.fadein,.skirtin').on('enter', el => {
+      $(el).addClass('is-view');
    });
+}
 
+export function setTab(){
    // tab
    const tabMenu = $('.js-tab-menu');
    const tabContents = $('.js-tab-contents').children();
@@ -98,6 +89,30 @@ export function setCommon(){
       tabMenu.children().eq(index).addClass('is-select');
       tabContents.eq(index).addClass('is-select');
    }
+}
+export function setAcordion(){
+   // acordion
+   const button = $('.js-accordion > :first-child');
+   let body = button.next();
+   body.hide();
+   button.on('click', function(){
+      body = $(this).next();
+      body.stop().slideToggle(600, () =>{
+         if (body.css('display') === 'none'){
+            $(this).removeClass('is-open');
+         }else{
+            $(this).addClass('is-open');
+         }
+         // $(window).trigger('scroll');
+      });
+   });
+}
+
+export function setCommon(){
+
+   $('a[href^="http"]:not([href*="' + location.hostname + '"])').attr('target', '_blank').addClass('is-blank');
+   $('a[href$=".pdf"]').attr('target', '_blank').addClass('is-pdf');
+   $('a').filter(function(){return /\.(jpe?g|png|gif)$/i.test(this.href);}).addClass('is-image');
 
    // page scroll
    $('a[href^="#"]:not([href$="#"])').on("click", function(e) {
