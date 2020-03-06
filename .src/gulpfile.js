@@ -37,7 +37,7 @@ var html_src = [
     path.dist + '**/*.html',
     path.dist + '**/*.php',
     path.dist + '**/*.js',
-    // path.dist + '**/*.{png,jpg,gif,svg}',
+    path.dist + '**/*.{png,jpg,gif,svg}',
     '!'+path.dist+'.src/**/*.*'
 ];
 
@@ -55,6 +55,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var prefix = require('gulp-autoprefixer');
 // var csscomb = require('gulp-csscomb');
 var sassglob = require("gulp-sass-glob");
+const through2 = require('through2');
 
 function css(){
     // var processors = [
@@ -89,10 +90,15 @@ function css(){
           grid: true
         }))
         .pipe(sourcemaps.write('./'))
+        .pipe(through2.obj((chunk, enc, callback)=>{
+          const date = new Date();
+          chunk.stat.atime = date;
+          chunk.stat.mtime = date;
+          callback(null, chunk);
+        }))
         .pipe(gulp.dest( sass_dist ))
         .pipe(browsersync.stream({match: '**/*.css'}));
 };
-
 
 var js_src = path.src + 'js/**/*.js';
 var ts_src = path.src + 'ts/**/*.ts';

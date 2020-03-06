@@ -10,5 +10,83 @@
 		&-i{
 			display: inline !important;
 		}
+		&-f{
+			display: flex !important;
+		}
+		&-if{
+			display: inline-flex !important;
+		}
+	}
+}
+
+.hidden{
+	@if $type == "all"{
+		&-all{
+			display: none !important;
+		}
+		&-tab{
+			// display: none;
+		}
+		&-sp{
+			// display: none;
+		}
+	}
+	@if $type == "all"{
+		&-all{
+			display: inherit !important;
+		}
+		&-tab{
+			display: none !important;
+		}
+		&-sp{
+			// display: none;
+		}
+	}
+	@if $type == "sp"{
+		&-all{
+			display: inherit !important;
+		}
+		&-tab{
+			// display: none;
+		}
+		&-sp{
+			display: none !important;
+		}
+	}
+}
+
+.visible{
+	@if $type == "all"{
+		&-all{
+			// display: none;
+		}
+		&-tab{
+			display: none !important;
+		}
+		&-sp{
+			display: none !important;
+		}
+	}
+	@if $type == "tab"{
+		&-all{
+			display: none !important;
+		}
+		&-tab{
+			display: inherit !important;
+		}
+		&-sp{
+			display: none !important;
+		}
+	}
+	@if $type == "sp"{
+		&-all{
+			display: none !important;
+		}
+		&-tab{
+			display: none !important;
+		}
+		&-sp{
+			display: inherit !important;
+		}
 	}
 }

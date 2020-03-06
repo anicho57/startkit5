@@ -39,6 +39,9 @@ module.exports = {
        },
      ]
    },
+  externals: {
+        jquery: 'jQuery'
+  },
    // import 文で .ts ファイルを解決するため
    resolve: {
       // extensions: [

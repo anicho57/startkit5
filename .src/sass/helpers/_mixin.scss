@@ -32,6 +32,7 @@
 		$c1 $size,
 		$c1 #{$size * 2}
 		);
+
 }
 
 @mixin fade-ini($time: .4s){
@@ -85,3 +86,51 @@
 	  }
   }
 }
+
+@mixin tab {
+  @media (min-width: $mq_tab_width) and (max-width: ($mq_pc_width)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: (#{$mq_tab_width - 1})) {
+    @content;
+  }
+}
+// html{
+// 	font-size: 16px;
+// 	@include tab {font-size: 14px;};
+// 	@include sp {font-size: 12px;};
+// }
+
+// breakpoint -------------------------------------
+$breakpoints: (
+	pc: "screen and (min-width:840px)",
+	sp: "screen and (max-width:839px)",
+	lg: "screen and (min-width:1280px)",
+	md: "screen and (max-width:1279px) and (min-width: 960px)",
+	sm: "screen and (max-width:959px) and (min-width:600px)",
+	xs: "screen and (max-width: 599px)",
+);
+@mixin mq($breakpoint) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+// .pc {
+// 	@include mq(pc) {
+// 		display: inherit !important;
+// 	}
+// 	@include mq(sp) {
+// 		display: none !important;
+// 	}
+// }
+// .sp {
+// 	@include mq(pc) {
+// 		display: none !important;
+// 	}
+// 	@include mq(sp) {
+// 		display: inherit !important;
+// 	}
+// }

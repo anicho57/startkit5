@@ -62,14 +62,6 @@ export function setInview(){
    });
 }
 
-export function setInview(){
-   // view animation
-   inView.offset(60);
-   inView('.fadein,.skirtin').on('enter', el => {
-      $(el).addClass('is-view');
-   });
-}
-
 export function setTab(){
    // tab
    const tabMenu = $('.js-tab-menu');
@@ -94,7 +86,9 @@ export function setAcordion(){
    // acordion
    const button = $('.js-accordion > :first-child');
    let body = button.next();
-   body.hide();
+   for (let i = 0; i < button.length; i++) {
+      if (!$(button[i]).hasClass('is-open')) $(button[i]).next().hide();
+   }
    button.on('click', function(){
       body = $(this).next();
       body.stop().slideToggle(600, () =>{

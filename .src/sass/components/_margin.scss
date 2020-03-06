@@ -3,11 +3,24 @@
 	@each $name, $ratio in $space_size_ratio {
 		@if $type == $q{
 			.m-#{$name}{
+				margin: $size * $ratio;
+			}
+			.my-#{$name}{
 				margin-top: $size * $ratio;
 				margin-bottom: $size * $ratio;
 			}
+			.mx-#{$name}{
+				margin-left: $size * $ratio;
+				margin-right: $size * $ratio;
+			}
 			.mt-#{$name}{
 				margin-top: $size * $ratio;
+			}
+			.mr-#{$name}{
+				margin-right: $size * $ratio;
+			}
+			.ml-#{$name}{
+				margin-left: $size * $ratio;
 			}
 			.mb-#{$name}{
 				margin-bottom: $size * $ratio;
