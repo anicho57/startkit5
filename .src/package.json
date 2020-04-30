@@ -27,7 +27,7 @@
     "gulp-sass-partials-imported": "^1.0.7",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "postcss-cssnext": "^3.1.0",
     "swiper": "^4.4.6",
     "velocity-animate": "^1.5.2",
